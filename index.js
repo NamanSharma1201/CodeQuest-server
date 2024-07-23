@@ -15,7 +15,7 @@ const app = express();
 
 connectDB();
 
-app.use(cors({ origin: 'https://code-quest-by-naman.netlify.app', credentials: true }));
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
