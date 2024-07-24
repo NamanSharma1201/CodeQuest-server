@@ -124,11 +124,11 @@ class UserController {
         { expiresIn: "1h" }
       );
 
-      const resetLink = `http://localhost:5173/reset/${user._id}/${token}`;
+      const resetLink = `${process.env.CLIENT_URL}/reset/${user._id}/${token}`;
 
       // Send email logic here
       await transporter.sendMail({
-        from: '"Your App" <yourapp@example.com>',
+        from: '"CodeQuest App" <yourapp@example.com>',
         to: user.email,
         subject: "Password Reset",
         text: `Click the following link to reset your password: ${resetLink}`,
